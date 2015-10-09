@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">ASPetPix3</string>
+    <string name="app_name">Pet Pix</string>
+    <string name="bLabel">Cat</string>
+    <string name="iLabel">Image</string>
 
-    <string name="hello_world">Hello world!</string>
+
     <string name="action_settings">Settings</string>
 </resources>

@@ -1,17 +1,50 @@
 package com.example.professor.aspetpix3;
-
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
+
+
+    ImageView pet;
+    Button cat;
+    Drawable cat1, cat2;
+    boolean toggle = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("MyTag","set layout");
+
+        pet = (ImageView) findViewById(R.id.view1);
+        cat = (Button) findViewById (R.id.buttonCat);
+
+        cat1 = ContextCompat.getDrawable(this, R.drawable.cat1);
+        cat2 = ContextCompat.getDrawable(this, R.drawable.cat2);
+
+
+        cat.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+
+                Log.d("MyTag", "onClick ");
+                showPet(v);
+                v.setVisibility(View.VISIBLE);
+                Log.d("MyTag", "exit showpet");
+            }
+        });
+
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -20,18 +53,19 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
+    public void showPet(View v){
+
+        if (toggle)
+            pet.setImageDrawable(cat1);
+        else
+            pet.setImageDrawable(cat2);
+
+
+        toggle = !toggle;
+
+
     }
+
 }
