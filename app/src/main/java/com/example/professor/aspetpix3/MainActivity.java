@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 
     ImageView pet;
     Button cat;
-    Drawable cat1, cat2;
+    Drawable cat1, cat2, cat3;
     boolean toggle = true;
 
 
